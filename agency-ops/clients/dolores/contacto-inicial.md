@@ -26,6 +26,10 @@ Santiago Lebolo
 JL Digital Marketing
 ```
 
+## Estado
+
+**Borrador creado en Gmail (2026-09-18), no enviado.** Guardado en la cuenta de Gmail conectada, listo para revisar y enviar. La etapa del CRM sigue en DEMO hasta que se envíe y se confirme.
+
 ## Antes de enviar
 
 1. Los links del demo y la landing son privados — compartir acceso antes de mandarlos.
