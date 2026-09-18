@@ -4,7 +4,7 @@ Antes de agregar un nuevo negocio, busca por nombre o website en esta tabla para
 
 | Negocio | Ciudad | Website | Contacto | Etapa | Última actualización | Notas |
 |---|---|---|---|---|---|---|
-| Gardel | Providence, RI | pvdgardel.com | +1 (401) 903-0818 (no confirmado) · gardel.pvd@gmail.com | DEMO | 2026-09-18 | Bar de tapas argentino. 4.8★/75 reseñas en Google. Ver `../clients/gardel/`. Demo: https://claude.ai/artifact/4yK2nppxeHAHfaTvHmYxpw · Landing de reviews: https://claude.ai/artifact/587eM8CuJtiUp25qywFUdA (ambos privados). Shot list de fotografía lista (Fase 6). Falta: propuesta comercial (Fase 7), auditoría directa del sitio real, enlace corto de reseña de Google (lo genera el negocio desde su GBP). |
+| Gardel | Providence, RI | pvdgardel.com | +1 (401) 903-0818 (no confirmado) · gardel.pvd@gmail.com | DEMO | 2026-09-18 | Bar de tapas argentino. 4.8★/75 reseñas en Google. Ver `../clients/gardel/`. Demo: https://claude.ai/artifact/4yK2nppxeHAHfaTvHmYxpw · Landing de reviews: https://claude.ai/artifact/587eM8CuJtiUp25qywFUdA (ambos privados). Shot list (Fase 6) y propuesta comercial (Fase 7) listas en `07-proposal.md`. Etapa se mantiene en DEMO porque todavía no hubo contacto real con el negocio — pasar a CONTACTED cuando se los aborde. |
 
 ## Etapas válidas
 
