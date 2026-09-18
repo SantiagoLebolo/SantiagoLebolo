@@ -27,8 +27,8 @@ to send it over if you're curious. No pressure either way.
 Would you be open to a quick 15-minute call this week or next?
 
 Best,
-[tu nombre]
-[nombre de tu agencia] · [tu teléfono/email de contacto]
+Santiago Lebolo
+JL Digital Marketing
 ```
 
 ## Opción B — Instagram DM a @gardel.ri (más informal, primer contacto liviano)
@@ -45,7 +45,7 @@ to see it.
 
 ## Antes de enviar cualquiera de las dos
 
-1. Completar `[tu nombre]` / `[nombre de tu agencia]` / datos de contacto — no los inventé.
+1. Falta un teléfono o email de contacto directo de JL Digital Marketing en la firma del email (opcional, agregalo si querés que lo tengan).
 2. **Los links del demo y la landing de reviews son privados hoy.** Antes de mandarlos hay que compartir el acceso desde el menú "Share" de cada artifact (yo no puedo cambiar los permisos de acceso). Si preferís no compartir el link todavía, se puede ofrecer "te muestro en una llamada" en vez de mandar el link directo.
 3. No incluí el teléfono +1 (401) 903-0818 en ningún lado de estos mensajes porque no está confirmado — no corresponde usarlo para contactar al negocio sin verificar antes que sea el canal correcto.
 4. Cuando decidas cuál enviar y lo mandes vos, avisame y actualizo la etapa en `crm/pipeline.md` de DEMO a CONTACTED.

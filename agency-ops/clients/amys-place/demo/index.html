@@ -1,0 +1,242 @@
+<title>Amy's Place Providence</title>
+<meta name="description" content="Propuesta de rediseño digital para Amy's Place, diner de desayuno y brunch en Fox Point, Providence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Libre+Baskerville:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Amy's Place se compromete deliberadamente a una sola paleta clara de
+     "diner de mañana" en cualquier tema del sistema — no es una omisión
+     de dark mode, es la identidad de marca (luz de desayuno, formica). */
+  :root{
+    --cream:#FBF3E7; --butter:#F4E3B2; --paper:#FFFDF8;
+    --cherry:#C6432B; --cherry-deep:#A3341F;
+    --teal:#2E6E62; --ink:#2B231C; --ink-dim:#6B5D4C;
+    --rule: rgba(43,35,28,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--cream); color:var(--ink);
+    font-family:'Work Sans',ui-sans-serif,system-ui,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2{font-family:'Bungee',ui-sans-serif,sans-serif;font-weight:400;text-wrap:balance;letter-spacing:.01em;}
+  .quote,.lede{font-family:'Libre Baskerville',Georgia,serif;font-style:italic;}
+  img,svg{max-width:100%;}
+  [hidden]{display:none!important;}
+
+  .wrap{max-width:960px;margin-inline:auto;padding-inline:20px;}
+
+  header.nav{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:20;
+    background:rgba(251,243,231,0.94); backdrop-filter:blur(6px);
+    border-bottom:2px solid var(--ink);
+  }
+  .nav-inner{max-width:960px;margin-inline:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Bungee',sans-serif;font-size:1.05rem;color:var(--cherry);text-decoration:none;}
+  nav.links{display:flex;gap:20px;flex-wrap:wrap;}
+  nav.links a{color:var(--ink-dim);text-decoration:none;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;}
+  nav.links a:hover{color:var(--cherry);}
+  .btn{
+    display:inline-block;padding:11px 20px;border-radius:999px;
+    text-decoration:none;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;border:2px solid var(--ink);white-space:nowrap;
+  }
+  .btn.solid{background:var(--cherry);border-color:var(--cherry-deep);color:#fff;}
+  .btn.solid:hover{background:var(--cherry-deep);}
+  .btn.outline{color:var(--ink);}
+  .btn.outline:hover{background:var(--ink);color:var(--cream);}
+
+  .hero{padding-block:60px 52px;text-align:center;border-bottom:2px solid var(--ink);}
+  .hero .eyebrow{color:var(--teal);letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;font-weight:600;margin-bottom:16px;}
+  .hero h1{font-size:clamp(2.2rem,7vw,3.6rem);color:var(--cherry);}
+  .hero .lede{color:var(--ink-dim);font-size:clamp(1.05rem,2.2vw,1.3rem);max-width:40ch;margin:16px auto 0;}
+  .wait-note{
+    margin:22px auto 0;max-width:44ch;background:var(--butter);border:2px dashed var(--cherry);
+    border-radius:10px;padding:14px 18px;font-size:.88rem;color:var(--ink);
+  }
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
+
+  section{padding-block:56px;border-bottom:2px solid var(--ink);}
+  section:nth-of-type(even){background:var(--butter);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{text-align:center;margin-bottom:36px;}
+  .section-head .eyebrow{color:var(--teal);letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;font-weight:600;margin-bottom:8px;}
+  .section-head h2{font-size:clamp(1.6rem,4vw,2.3rem);color:var(--ink);}
+
+  .story{max-width:62ch;margin-inline:auto;text-align:center;display:flex;flex-direction:column;gap:20px;}
+  .story .quote{font-size:1.25rem;color:var(--cherry);}
+  .story p{color:var(--ink-dim);}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px;max-width:640px;margin:0 auto 40px;}
+  .stat{text-align:center;padding:18px 10px;background:var(--paper);border:2px solid var(--ink);border-radius:10px;}
+  .stat b{display:block;font-family:'Bungee',sans-serif;font-size:1.5rem;color:var(--cherry);}
+  .stat span{font-size:.75rem;color:var(--ink-dim);letter-spacing:.04em;text-transform:uppercase;}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;max-width:720px;margin-inline:auto;}
+  .menu-col + .menu-col{border-left:2px dashed var(--rule);padding-left:44px;}
+  .menu-item{display:flex;flex-direction:column;gap:2px;padding-block:13px;border-bottom:2px dashed var(--rule);}
+  .menu-item:last-child{border-bottom:none;}
+  .menu-item .name{color:var(--ink);font-weight:600;}
+  .menu-item .note{font-size:.82rem;color:var(--ink-dim);}
+  .menu-note{text-align:center;color:var(--ink-dim);font-size:.85rem;margin-top:28px;max-width:52ch;margin-inline:auto;}
+
+  .icon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;}
+  .icon-card{text-align:center;padding:24px 14px;border:2px solid var(--ink);background:var(--paper);border-radius:10px;}
+  .icon-card svg{width:44px;height:44px;stroke:var(--cherry);fill:none;stroke-width:1.6;margin-bottom:10px;}
+  .icon-card .label{font-size:.8rem;letter-spacing:.04em;color:var(--ink-dim);text-transform:uppercase;}
+  .production-note{margin-top:26px;text-align:center;color:var(--ink-dim);font-size:.82rem;border-top:2px dashed var(--rule);padding-top:18px;max-width:56ch;margin-inline:auto;}
+  .production-note strong{color:var(--cherry);}
+
+  .location{display:grid;gap:26px;max-width:600px;margin-inline:auto;text-align:center;}
+  .addr{font-size:1.1rem;font-weight:600;}
+  .hours-table{margin:0 auto;border-collapse:collapse;font-size:.92rem;}
+  .hours-table td{padding:4px 14px;color:var(--ink-dim);}
+  .hours-table td:first-child{color:var(--ink);font-weight:600;text-align:right;}
+
+  footer{padding-block:40px;text-align:center;}
+  .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+  .foot-links a{color:var(--ink-dim);text-decoration:none;font-size:.85rem;}
+  .foot-links a:hover{color:var(--cherry);}
+  .foot-note{color:var(--ink-dim);font-size:.75rem;opacity:.85;max-width:54ch;margin-inline:auto;}
+
+  .reveal{opacity:1;transform:none;transition:opacity .5s ease, transform .5s ease;}
+  @media (prefers-reduced-motion: no-preference){ .reveal.pre{opacity:0;transform:translateY(12px);} }
+
+  @media (max-width:640px){
+    nav.links{display:none;}
+    .menu-grid{grid-template-columns:1fr;}
+    .menu-col + .menu-col{border-left:none;border-top:2px dashed var(--rule);padding-left:0;padding-top:8px;margin-top:8px;}
+  }
+</style>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">Amy's</a>
+    <nav class="links">
+      <a href="#historia">Historia</a>
+      <a href="#menu">Menú</a>
+      <a href="#visitanos">Visitanos</a>
+    </nav>
+    <a class="btn solid" href="https://order.toasttab.com/online/amysprovidence" target="_blank" rel="noopener">Pedir para llevar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="eyebrow">Wickenden St · Providence, RI</div>
+      <h1>Amy's Place</h1>
+      <p class="lede">Desayuno y brunch de barrio desde hace 26 años — famosos por el sándwich sobre pan bolo portugués.</p>
+      <div class="wait-note">Los fines de semana se llena rápido. Pedí con anticipación y salteate la fila.</div>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://order.toasttab.com/online/amysprovidence" target="_blank" rel="noopener">Pedir para llevar</a>
+        <a class="btn outline" href="#menu">Ver el menú</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap story reveal pre">
+      <p class="quote">"Del barrio, para el barrio — 26 años sirviendo el mismo pan bolo de siempre."</p>
+      <p>Amy's Place lleva más de dos décadas y media en Wickenden Street. El plato insignia, el "Hash it Out" — huevo, cheddar, hash brown y aioli picante sobre pan bolo, la clásica hogaza portuguesa de Rhode Island — se ganó cobertura propia en la prensa gastronómica local. Café, chai y smoothies hechos desde cero completan la carta.</p>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">La carta</div>
+        <h2>Lo más pedido</h2>
+      </div>
+      <div class="stats reveal pre">
+        <div class="stat"><b>26</b><span>años en el barrio</span></div>
+        <div class="stat"><b>9.3K</b><span>seguidores en Instagram</span></div>
+        <div class="stat"><b>260+</b><span>reseñas en Yelp</span></div>
+      </div>
+      <div class="menu-grid reveal pre">
+        <div class="menu-col">
+          <div class="menu-item"><span class="name">Hash it Out</span><span class="note">huevo, cheddar, hash brown, aioli picante, pan bolo</span></div>
+          <div class="menu-item"><span class="name">Sunday Sandwich</span></div>
+          <div class="menu-item"><span class="name">Hamburguesas</span></div>
+        </div>
+        <div class="menu-col">
+          <div class="menu-item"><span class="name">Chai tea</span></div>
+          <div class="menu-item"><span class="name">Smoothies</span></div>
+          <div class="menu-item"><span class="name">Café de la casa</span></div>
+        </div>
+      </div>
+      <p class="menu-note">Carta completa y opciones vegetarianas en amysplaceri.com — los platos cambian según disponibilidad de temporada.</p>
+    </div>
+  </section>
+
+  <section id="fotografia">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">Próximamente</div>
+        <h2>Biblioteca visual</h2>
+      </div>
+      <div class="icon-grid reveal pre">
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M4 9l2-4h12l2 4"/></svg>
+          <div class="label">Hero</div>
+        </div>
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg>
+          <div class="label">Platos de carta</div>
+        </div>
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 3h12"/></svg>
+          <div class="label">Bebidas</div>
+        </div>
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
+          <div class="label">Fachada / local</div>
+        </div>
+      </div>
+      <p class="production-note"><strong>Ilustraciones provisionales</strong> — no se evaluó el banco de fotos real de Amy's Place (Instagram y sitio) en esta sesión. La shot list de Fase 6 define qué reemplazar primero.</p>
+    </div>
+  </section>
+
+  <section id="visitanos">
+    <div class="wrap location reveal pre">
+      <div class="section-head" style="margin-bottom:0;">
+        <div class="eyebrow">Visitanos</div>
+        <h2>214 Wickenden St</h2>
+      </div>
+      <p class="addr">Fox Point, Providence, RI 02903</p>
+      <table class="hours-table">
+        <tr><td>Lun–Mar</td><td>Cerrado</td></tr>
+        <tr><td>Mié–Dom</td><td>8:00am–1:30pm cocina · hasta 2:00pm café y smoothies</td></tr>
+      </table>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Amy%27s+Place+214+Wickenden+St+Providence+RI+02903" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn outline" href="https://www.instagram.com/amysplaceri/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#top">Amy's</a>
+    <div class="foot-links">
+      <a href="https://amysplaceri.com" target="_blank" rel="noopener">amysplaceri.com</a>
+      <a href="https://www.instagram.com/amysplaceri/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/amysplaceri/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <p class="foot-note">Demo de rediseño — Fase 3/4 del proceso de agencia. No es el sitio en producción de Amy's Place. Teléfono de contacto pendiente de confirmación directa con el negocio, por eso no se muestra aquí.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.remove('pre'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.remove('pre'); io.unobserve(entry.target); } });
+    }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){}
+})();
+</script>
