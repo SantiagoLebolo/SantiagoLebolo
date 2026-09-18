@@ -43,6 +43,10 @@ pitch, just wanted to share in case it's useful — let me know if you'd like
 to see it.
 ```
 
+## Estado
+
+**Borrador creado en Gmail (2026-09-18), no enviado.** Opción A (email) está guardada como borrador en la cuenta de Gmail conectada, lista para revisar y enviar. Yo no lo envié — la etapa del CRM sigue en DEMO hasta que vos lo mandes y me avises.
+
 ## Antes de enviar cualquiera de las dos
 
 1. Falta un teléfono o email de contacto directo de JL Digital Marketing en la firma del email (opcional, agregalo si querés que lo tengan).
