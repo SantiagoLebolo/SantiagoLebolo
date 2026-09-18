@@ -1,0 +1,327 @@
+<title>Gardel Providence</title>
+<meta name="description" content="Propuesta de rediseño digital para Gardel, bar de tapas argentino en Providence, RI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Gardel commits deliberately to one moody, tango-lounge palette in every
+     system theme — not an omission of dark-mode support, a brand choice. */
+  :root{
+    --ink: #1B1512;
+    --ink-2: #241C17;
+    --ink-3: #2E241D;
+    --paper: #F1E6D2;
+    --paper-dim: #C9BBA3;
+    --malbec: #A23752;
+    --malbec-deep: #7A2036;
+    --brass: #C6A253;
+    --verdigris: #7C9C8B;
+    --rule: rgba(198,162,83,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Work Sans',ui-sans-serif,system-ui,sans-serif;
+    padding-inline:0;
+    padding-block:0;
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Abril Fatface',Georgia,serif;font-weight:400;text-wrap:balance;margin:0;}
+  .quote,.tagline,.lede{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;}
+  a{color:var(--brass);}
+  img,svg{max-width:100%;}
+  [hidden]{display:none!important;}
+
+  .wrap{max-width:960px;margin-inline:auto;padding-inline:20px;}
+
+  /* nav */
+  header.nav{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:20;
+    background:rgba(27,21,18,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:960px;margin-inline:auto;padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .wordmark{font-family:'Abril Fatface',Georgia,serif;font-size:1.25rem;letter-spacing:0.03em;color:var(--paper);text-decoration:none;}
+  nav.links{display:flex;gap:22px;flex-wrap:wrap;}
+  nav.links a{
+    color:var(--paper-dim);text-decoration:none;font-size:0.85rem;
+    letter-spacing:0.08em;text-transform:uppercase;
+  }
+  nav.links a:hover{color:var(--brass);}
+  .btn{
+    display:inline-block;padding:10px 20px;border:1px solid var(--brass);
+    border-radius:2px;color:var(--brass);text-decoration:none;
+    font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
+    transition:background .2s,color .2s;white-space:nowrap;
+  }
+  .btn:hover{background:var(--brass);color:var(--ink);}
+  .btn.solid{background:var(--malbec);border-color:var(--malbec);color:var(--paper);}
+  .btn.solid:hover{background:var(--malbec-deep);color:var(--paper);}
+
+  /* hero */
+  .hero{
+    padding-block:76px 64px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(122,32,54,0.28), transparent 60%),
+      var(--ink);
+    border-bottom:1px solid var(--rule);
+  }
+  .hero .eyebrow{
+    color:var(--verdigris);letter-spacing:0.25em;text-transform:uppercase;
+    font-size:0.72rem;margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--paper);}
+  .hero .tagline{
+    color:var(--paper-dim);font-size:clamp(1.1rem,2.4vw,1.4rem);
+    max-width:38ch;margin:18px auto 0;
+  }
+  .rule{
+    width:120px;height:1px;background:var(--brass);margin:28px auto;
+    opacity:0.8;
+  }
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px;}
+  .rating-badge{
+    margin-top:30px;display:inline-flex;gap:10px;align-items:center;
+    font-size:0.85rem;color:var(--paper-dim);
+  }
+  .rating-badge b{color:var(--brass);font-size:1rem;}
+
+  section{padding-block:64px;border-bottom:1px solid var(--rule);}
+  section:nth-of-type(even){background:var(--ink-2);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{text-align:center;margin-bottom:40px;}
+  .section-head .eyebrow{
+    color:var(--verdigris);letter-spacing:0.25em;text-transform:uppercase;
+    font-size:0.72rem;margin-bottom:10px;
+  }
+  .section-head h2{font-size:clamp(1.8rem,4.5vw,2.6rem);color:var(--paper);}
+
+  /* historia */
+  .historia{display:grid;grid-template-columns:1fr;gap:28px;max-width:64ch;margin-inline:auto;text-align:center;}
+  .historia p{color:var(--paper-dim);}
+  .historia .quote{font-size:1.3rem;color:var(--paper);}
+
+  /* menu */
+  .menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;max-width:760px;margin-inline:auto;}
+  .menu-col + .menu-col{border-left:1px solid var(--rule);padding-left:48px;}
+  .menu-item{
+    display:flex;justify-content:space-between;gap:12px;
+    padding-block:14px;border-bottom:1px dashed var(--rule);
+  }
+  .menu-item:last-child{border-bottom:none;}
+  .menu-item .name{color:var(--paper);}
+  .menu-item .note{display:block;color:var(--paper-dim);font-size:0.82rem;margin-top:2px;}
+  .price-note{
+    text-align:center;color:var(--paper-dim);font-size:0.85rem;
+    margin-top:32px;max-width:52ch;margin-inline:auto;
+  }
+
+  /* reviews */
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
+  .review{padding:26px 22px;background:var(--ink-3);border:1px solid var(--rule);border-radius:2px;}
+  .review .stars{color:var(--brass);letter-spacing:0.1em;font-size:0.9rem;margin-bottom:10px;}
+  .review p{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color:var(--paper);font-size:1.1rem;}
+  .review .who{margin-top:14px;color:var(--paper-dim);font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase;}
+
+  /* photography */
+  .icon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;}
+  .icon-card{
+    text-align:center;padding:26px 16px;border:1px solid var(--rule);
+    background:var(--ink-3);border-radius:2px;
+  }
+  .icon-card svg{width:46px;height:46px;stroke:var(--brass);fill:none;stroke-width:1.4;margin-bottom:12px;}
+  .icon-card .label{font-size:0.82rem;letter-spacing:0.05em;color:var(--paper-dim);text-transform:uppercase;}
+  .production-note{
+    margin-top:28px;text-align:center;color:var(--paper-dim);font-size:0.82rem;
+    border-top:1px dashed var(--rule);padding-top:20px;max-width:56ch;margin-inline:auto;
+  }
+  .production-note strong{color:var(--brass);}
+
+  /* location */
+  .location{display:grid;grid-template-columns:1fr;gap:32px;max-width:640px;margin-inline:auto;text-align:center;}
+  .addr{font-size:1.15rem;color:var(--paper);}
+  .hours-note{color:var(--paper-dim);font-size:0.9rem;}
+
+  footer{padding-block:48px;text-align:center;}
+  footer .wordmark{display:block;margin-bottom:14px;}
+  .foot-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;}
+  .foot-links a{color:var(--paper-dim);text-decoration:none;font-size:0.85rem;}
+  .foot-links a:hover{color:var(--brass);}
+  .foot-note{color:var(--paper-dim);font-size:0.75rem;opacity:0.75;max-width:52ch;margin-inline:auto;}
+
+  .reveal{opacity:1;transform:none;transition:opacity .6s ease, transform .6s ease;}
+  @media (prefers-reduced-motion: no-preference){
+    .reveal.pre{opacity:0;transform:translateY(14px);}
+  }
+
+  @media (max-width:640px){
+    .nav-inner{flex-wrap:wrap;}
+    nav.links{display:none;}
+    .menu-grid{grid-template-columns:1fr;}
+    .menu-col + .menu-col{border-left:none;border-top:1px solid var(--rule);padding-left:0;padding-top:10px;margin-top:10px;}
+  }
+</style>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">Gardel</a>
+    <nav class="links">
+      <a href="#historia">Historia</a>
+      <a href="#menu">Menú</a>
+      <a href="#resenas">Reseñas</a>
+      <a href="#visitanos">Visitanos</a>
+    </nav>
+    <a class="btn solid" href="https://www.pvdgardel.com" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="eyebrow">Fox Point · Providence, RI</div>
+      <h1>Gardel</h1>
+      <p class="tagline">Cocina argentina con acentos de España e Italia, vinos naturales y una carta que cambia con la temporada.</p>
+      <div class="rule"></div>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.pvdgardel.com" target="_blank" rel="noopener">Reservar mesa</a>
+        <a class="btn" href="#menu">Ver la carta</a>
+      </div>
+      <div class="rating-badge">★★★★★ <b>4.8</b> en Google · 75 reseñas</div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap historia reveal pre">
+      <div class="eyebrow" style="color:var(--verdigris);letter-spacing:.25em;text-transform:uppercase;font-size:.72rem;">La casa</div>
+      <p class="quote">"Como su nombre, un homenaje a Buenos Aires — servido en el corazón de Fox Point."</p>
+      <p>Gardel lleva el nombre del mítico cantor de tango porteño. Bajo la conducción del chef Tomás Peláez, la cocina cruza platos argentinos con guiños a España e Italia: empanadas, croquetas y bistec conviven con una carta de vinos naturales cuidadosamente elegida. El menú rota con la temporada — no hay dos visitas exactamente iguales.</p>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">La carta</div>
+        <h2>Algunos de nuestros platos</h2>
+      </div>
+      <div class="menu-grid reveal pre">
+        <div class="menu-col">
+          <div class="menu-item"><span class="name">Canelones</span></div>
+          <div class="menu-item"><span class="name">Croquetas<span class="note">uno de los platos más pedidos</span></span></div>
+          <div class="menu-item"><span class="name">Fennel &amp; Squid</span></div>
+          <div class="menu-item"><span class="name">Arugula Salad</span></div>
+        </div>
+        <div class="menu-col">
+          <div class="menu-item"><span class="name">Gazpacho</span></div>
+          <div class="menu-item"><span class="name">Olives Pan Con Tomate</span></div>
+          <div class="menu-item"><span class="name">Basque Tart</span></div>
+          <div class="menu-item"><span class="name">Basque Cheesecake</span></div>
+        </div>
+      </div>
+      <p class="price-note">Sharing plates, entrées y postres — la carta completa y los precios vigentes están en pvdgardel.com, ya que el menú rota según temporada.</p>
+    </div>
+  </section>
+
+  <section id="resenas">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">Lo que dicen</div>
+        <h2>Reseñas de Google</h2>
+      </div>
+      <div class="reviews reveal pre">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>"Excelente restaurant, recomendado. Muy buena atención al cliente y su comida espectacular."</p>
+          <div class="who">Magdalena Pimentel · Google</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>"Cócteles fantásticos. El personal es muy amable. Es un lugar pequeño e íntimo."</p>
+          <div class="who">Nicole B. Garcia · Google</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>"Pedí las empanadas de carne y todo estaba perfecto — la salsa chimichurri las realzaba aún más."</p>
+          <div class="who">The RI Food Dude · Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fotografia">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">Próximamente</div>
+        <h2>Biblioteca visual</h2>
+      </div>
+      <div class="icon-grid reveal pre">
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12l-1 8a5 5 0 0 1-10 0L6 3z"/><path d="M12 16v5M8 21h8"/></svg>
+          <div class="label">Hero</div>
+        </div>
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><path d="M4 12c4-6 12-6 16 0-4 6-12 6-16 0z"/><circle cx="12" cy="12" r="2.4"/></svg>
+          <div class="label">Platos de carta</div>
+        </div>
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><path d="M3 8c3 3 15 3 18 0M4 16c2-2 14-2 16 0"/><circle cx="7" cy="12" r="1"/><circle cx="17" cy="12" r="1"/></svg>
+          <div class="label">Reviews / social</div>
+        </div>
+        <div class="icon-card">
+          <svg viewBox="0 0 24 24"><path d="M12 3c-3 2-3 6-3 6s4 0 6-3c1 3-1 6-3 6v9"/></svg>
+          <div class="label">Ambiente</div>
+        </div>
+      </div>
+      <p class="production-note"><strong>Ilustraciones provisionales</strong> — este demo aún no incluye fotografía real del local. La shot list profesional (Fase 6) define qué platos, ángulos y espacios fotografiar antes de reemplazar estos íconos por imágenes reales.</p>
+    </div>
+  </section>
+
+  <section id="visitanos">
+    <div class="wrap location reveal pre">
+      <div class="section-head" style="margin-bottom:0;">
+        <div class="eyebrow">Visitanos</div>
+        <h2>102 Ives St</h2>
+      </div>
+      <p class="addr">Fox Point, Providence, RI 02906</p>
+      <p class="hours-note">Horario sujeto a cambios de temporada — confirmá el horario del día en Google o Instagram antes de venir.</p>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Gardel+102+Ives+St+Providence+RI+02906" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn" href="https://www.instagram.com/gardel.ri/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#top">Gardel</a>
+    <div class="foot-links">
+      <a href="https://www.pvdgardel.com" target="_blank" rel="noopener">pvdgardel.com</a>
+      <a href="https://www.instagram.com/gardel.ri/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/p/Gardel-61559202166402/" target="_blank" rel="noopener">Facebook</a>
+      <a href="mailto:gardel.pvd@gmail.com">gardel.pvd@gmail.com</a>
+    </div>
+    <p class="foot-note">Demo de rediseño — Fase 3/4 del proceso de agencia. No es el sitio en producción de Gardel. Teléfono de contacto pendiente de confirmación con el negocio, por eso no se muestra aquí.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.remove('pre'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.remove('pre'); io.unobserve(entry.target); }
+      });
+    }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){}
+})();
+</script>
