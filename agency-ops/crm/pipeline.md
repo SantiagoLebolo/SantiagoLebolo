@@ -4,7 +4,7 @@ Antes de agregar un nuevo negocio, busca por nombre o website en esta tabla para
 
 | Negocio | Ciudad | Website | Contacto | Etapa | Última actualización | Notas |
 |---|---|---|---|---|---|---|
-| _(sin registros todavía)_ | | | | | | |
+| Gardel | Providence, RI | pvdgardel.com | +1 (401) 903-0818 · gardel.pvd@gmail.com | AUDIT | 2026-09-18 | Bar de tapas argentino. 4.8★/75 reseñas en Google. Ver `../clients/gardel/`. Sitio web no verificable directamente desde esta sesión (bloqueo de red) — pendiente auditoría manual. |
 
 ## Etapas válidas
 
