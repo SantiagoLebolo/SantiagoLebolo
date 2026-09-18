@@ -1,0 +1,184 @@
+<title>Olneyville New York System</title>
+<meta name="description" content="Propuesta de rediseño digital para Olneyville New York System, institución de hot wieners desde 1946 en Providence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Olneyville N.Y. System: letrero de neón nocturno, tema único
+     deliberado (noche + neón) en cualquier sistema — no es una omisión
+     de dark mode, es un diner de trasnoche desde 1946. */
+  :root{
+    --night:#14100D; --night-2:#1D1712; --night-3:#241C15;
+    --mustard:#F2B705; --cherry:#E8383A; --steel:#9FB0B3; --cream:#F4EFE6;
+    --cream-dim:#B9AE9C; --rule: rgba(242,183,5,0.25);
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--night);color:var(--cream);font-family:'Oswald',ui-sans-serif,system-ui,sans-serif;line-height:1.6;}
+  h1,h2{font-family:'Monoton',ui-sans-serif,sans-serif;font-weight:400;text-transform:uppercase;text-wrap:balance;letter-spacing:.02em;}
+  img,svg{max-width:100%;} [hidden]{display:none!important;}
+  .wrap{max-width:960px;margin-inline:auto;padding-inline:20px;}
+
+  header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(20,16,13,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule);}
+  .nav-inner{max-width:960px;margin-inline:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Monoton',sans-serif;font-size:.95rem;color:var(--mustard);text-decoration:none;text-transform:uppercase;letter-spacing:.03em;}
+  nav.links{display:flex;gap:18px;flex-wrap:wrap;}
+  nav.links a{color:var(--cream-dim);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;}
+  nav.links a:hover{color:var(--mustard);}
+  .btn{display:inline-block;padding:10px 20px;text-decoration:none;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border:1px solid var(--mustard);color:var(--mustard);white-space:nowrap;}
+  .btn.solid{background:var(--cherry);border-color:var(--cherry);color:#fff;}
+  .btn.solid:hover{background:#c72a2c;}
+  .btn.outline:hover{background:var(--mustard);color:var(--night);}
+
+  .hero{padding-block:64px 52px;text-align:center;border-bottom:1px solid var(--rule);background:radial-gradient(ellipse at 50% 0%, rgba(242,183,5,0.12), transparent 60%);}
+  .hero .eyebrow{color:var(--steel);letter-spacing:.24em;text-transform:uppercase;font-size:.7rem;font-weight:600;margin-bottom:18px;}
+  .hero h1{font-size:clamp(1.8rem,6.5vw,3.1rem);color:var(--mustard);line-height:1.3;}
+  .hero .lede{color:var(--cream-dim);font-size:clamp(1rem,2.1vw,1.25rem);max-width:42ch;margin:18px auto 0;font-family:'Oswald',sans-serif;}
+  .open-badge{
+    display:inline-block;margin-top:24px;padding:10px 20px;border:1px dashed var(--cherry);
+    color:var(--cherry);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600;
+  }
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+
+  section{padding-block:56px;border-bottom:1px solid var(--rule);}
+  section:nth-of-type(even){background:var(--night-2);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{text-align:center;margin-bottom:36px;}
+  .section-head .eyebrow{color:var(--steel);letter-spacing:.24em;text-transform:uppercase;font-size:.7rem;font-weight:600;margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.3rem,4vw,1.9rem);color:var(--cream);}
+
+  .story{max-width:62ch;margin-inline:auto;text-align:center;display:flex;flex-direction:column;gap:18px;}
+  .story p{color:var(--cream-dim);}
+  .story b{color:var(--mustard);}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px;max-width:560px;margin:0 auto;}
+  .stat{text-align:center;padding:18px 10px;background:var(--night-3);border:1px solid var(--rule);}
+  .stat b{display:block;font-family:'Monoton',sans-serif;font-size:1.3rem;color:var(--cherry);}
+  .stat span{font-size:.72rem;color:var(--cream-dim);letter-spacing:.04em;text-transform:uppercase;}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;max-width:640px;margin-inline:auto;}
+  .menu-col + .menu-col{border-left:1px dashed var(--rule);padding-left:44px;}
+  .menu-item{padding-block:13px;border-bottom:1px dashed var(--rule);font-weight:500;}
+  .menu-item:last-child{border-bottom:none;}
+  .menu-note{text-align:center;color:var(--cream-dim);font-size:.85rem;margin-top:26px;max-width:52ch;margin-inline:auto;}
+
+  .location{display:grid;gap:22px;max-width:600px;margin-inline:auto;text-align:center;}
+  .addr{font-size:1.05rem;font-weight:600;color:var(--cream);}
+  .hours-table{margin:0 auto;border-collapse:collapse;font-size:.9rem;}
+  .hours-table td{padding:4px 14px;color:var(--cream-dim);}
+  .hours-table td:first-child{color:var(--cream);font-weight:600;text-align:right;}
+
+  footer{padding-block:40px;text-align:center;}
+  .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+  .foot-links a{color:var(--cream-dim);text-decoration:none;font-size:.85rem;}
+  .foot-links a:hover{color:var(--mustard);}
+  .foot-note{color:var(--cream-dim);font-size:.75rem;opacity:.8;max-width:54ch;margin-inline:auto;}
+
+  .reveal{opacity:1;transform:none;transition:opacity .5s ease, transform .5s ease;}
+  @media (prefers-reduced-motion: no-preference){ .reveal.pre{opacity:0;transform:translateY(12px);} }
+  @media (max-width:640px){
+    nav.links{display:none;}
+    .menu-grid{grid-template-columns:1fr;}
+    .menu-col + .menu-col{border-left:none;border-top:1px dashed var(--rule);padding-left:0;padding-top:8px;margin-top:8px;}
+  }
+</style>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">Olneyville N.Y. System</a>
+    <nav class="links">
+      <a href="#historia">Historia</a>
+      <a href="#menu">Menú</a>
+      <a href="#visitanos">Visitanos</a>
+    </nav>
+    <a class="btn solid" href="https://www.olneyvillenewyorksystem.com" target="_blank" rel="noopener">Ver el sitio</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="eyebrow">Olneyville · Providence, RI</div>
+      <h1>Olneyville<br>New York System</h1>
+      <p class="lede">Hot wieners desde 1946 — la institución que sigue abierta cuando todo lo demás cierra.</p>
+      <div class="open-badge">Abierto hasta la madrugada, todos los días</div>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.olneyvillenewyorksystem.com" target="_blank" rel="noopener">Ver el menú</a>
+        <a class="btn outline" href="https://www.instagram.com/olneyvillenysystem/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap story reveal pre">
+      <p>Fundado en <b>1946</b> por Anthony Stavrianakos, inmigrante griego, Olneyville New York System sirve la misma receta de hot wieners desde entonces — nunca "hot dogs", siempre "wieners". Las propinas del mostrador se destinan a un fondo navideño para niños de bajos recursos, una tradición que sigue viva hoy.</p>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">La carta</div>
+        <h2>El clásico, "all the way"</h2>
+      </div>
+      <div class="menu-grid reveal pre">
+        <div class="menu-col">
+          <div class="menu-item">Hot wiener "all the way"</div>
+          <div class="menu-item">Mostaza</div>
+        </div>
+        <div class="menu-col">
+          <div class="menu-item">Cebolla</div>
+          <div class="menu-item">Sal de apio + salsa de carne</div>
+        </div>
+      </div>
+      <p class="menu-note">Menú completo en olneyvillenewyorksystem.com.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap reveal pre">
+      <div class="section-head" style="margin-bottom:20px;"><div class="eyebrow">Reputación</div></div>
+      <div class="stats">
+        <div class="stat"><b>614</b><span>reseñas en Yelp</span></div>
+        <div class="stat"><b>16K</b><span>seguidores en Instagram</span></div>
+        <div class="stat"><b>1946</b><span>desde entonces</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visitanos">
+    <div class="wrap location reveal pre">
+      <div class="section-head" style="margin-bottom:0;"><div class="eyebrow">Visitanos</div><h2>18 Plainfield St</h2></div>
+      <p class="addr">Olneyville, Providence, RI 02909</p>
+      <table class="hours-table">
+        <tr><td>Dom–Jue</td><td>8am–2am</td></tr>
+        <tr><td>Vie–Sáb</td><td>8am–3am</td></tr>
+      </table>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Olneyville+New+York+System+18+Plainfield+St+Providence+RI+02909" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn outline" href="https://www.instagram.com/olneyvillenysystem/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#top">Olneyville N.Y. System</a>
+    <div class="foot-links" style="margin-top:14px;">
+      <a href="https://www.olneyvillenewyorksystem.com" target="_blank" rel="noopener">olneyvillenewyorksystem.com</a>
+      <a href="https://www.instagram.com/olneyvillenysystem/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="foot-note">Demo de rediseño — Fase 3/4 del proceso de agencia. No es el sitio en producción de Olneyville New York System. Teléfono pendiente de confirmación directa, por eso no se muestra aquí.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.remove('pre'); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.remove('pre'); io.unobserve(entry.target); } }); }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){}
+})();
+</script>

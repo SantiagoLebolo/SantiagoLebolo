@@ -1,0 +1,195 @@
+<title>Dolores Providence</title>
+<meta name="description" content="Propuesta de rediseño digital para Dolores, cocina contemporánea de la Mixteca en Fox Point, Providence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Dolores se compromete deliberadamente a una sola paleta anclada en
+     materiales reales de Oaxaca (barro negro, grana cochinilla, maíz) —
+     no es una omisión de dark mode, es la identidad de marca. */
+  :root{
+    --masa:#EFE3CC; --masa-2:#E6D6B8; --paper:#FAF3E4;
+    --clay:#2B2420; --clay-dim:#5A4F43;
+    --cochineal:#A32138; --cochineal-deep:#7E1929;
+    --indigo:#2C4A5E; --corn:#D9A441;
+    --rule: rgba(43,36,32,0.18);
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--masa); color:var(--clay); font-family:'Work Sans',ui-sans-serif,system-ui,sans-serif; line-height:1.6;}
+  h1,h2{font-family:'Fraunces',Georgia,serif;font-weight:500;text-wrap:balance;}
+  .quote,.lede{font-family:'Fraunces',Georgia,serif;font-style:italic;}
+  img,svg{max-width:100%;}
+  [hidden]{display:none!important;}
+  .wrap{max-width:960px;margin-inline:auto;padding-inline:20px;}
+
+  header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(239,227,204,0.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule);}
+  .nav-inner{max-width:960px;margin-inline:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--cochineal);text-decoration:none;}
+  nav.links{display:flex;gap:20px;flex-wrap:wrap;}
+  nav.links a{color:var(--clay-dim);text-decoration:none;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;}
+  nav.links a:hover{color:var(--cochineal);}
+  .btn{display:inline-block;padding:10px 20px;border-radius:2px;text-decoration:none;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--clay);white-space:nowrap;}
+  .btn.solid{background:var(--cochineal);border-color:var(--cochineal-deep);color:#fff;}
+  .btn.solid:hover{background:var(--cochineal-deep);}
+  .btn.outline{color:var(--clay);}
+  .btn.outline:hover{background:var(--clay);color:var(--masa);}
+
+  .hero{padding-block:64px 52px;text-align:center;border-bottom:1px solid var(--rule);background:radial-gradient(ellipse at 50% 0%, rgba(163,33,56,0.12), transparent 60%);}
+  .hero .eyebrow{color:var(--indigo);letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;font-weight:600;margin-bottom:16px;}
+  .hero h1{font-size:clamp(2.2rem,7vw,3.6rem);color:var(--clay);}
+  .hero .lede{color:var(--clay-dim);font-size:clamp(1.05rem,2.2vw,1.3rem);max-width:40ch;margin:16px auto 0;}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;}
+
+  section{padding-block:56px;border-bottom:1px solid var(--rule);}
+  section:nth-of-type(even){background:var(--masa-2);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{text-align:center;margin-bottom:36px;}
+  .section-head .eyebrow{color:var(--indigo);letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;font-weight:600;margin-bottom:8px;}
+  .section-head h2{font-size:clamp(1.6rem,4vw,2.3rem);}
+
+  .story{max-width:62ch;margin-inline:auto;text-align:center;display:flex;flex-direction:column;gap:18px;}
+  .story .quote{font-size:1.25rem;color:var(--cochineal);}
+  .story p{color:var(--clay-dim);}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px;max-width:560px;margin:0 auto 40px;}
+  .stat{text-align:center;padding:18px 10px;background:var(--paper);border:1px solid var(--rule);border-radius:6px;}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--cochineal);}
+  .stat span{font-size:.75rem;color:var(--clay-dim);letter-spacing:.04em;text-transform:uppercase;}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;max-width:700px;margin-inline:auto;}
+  .menu-col + .menu-col{border-left:1px solid var(--rule);padding-left:44px;}
+  .menu-item{padding-block:13px;border-bottom:1px dashed var(--rule);}
+  .menu-item:last-child{border-bottom:none;}
+  .menu-item .name{font-weight:600;}
+  .menu-note{text-align:center;color:var(--clay-dim);font-size:.85rem;margin-top:26px;max-width:52ch;margin-inline:auto;}
+
+  .icon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;}
+  .icon-card{text-align:center;padding:24px 14px;border:1px solid var(--rule);background:var(--paper);border-radius:6px;}
+  .icon-card svg{width:44px;height:44px;stroke:var(--cochineal);fill:none;stroke-width:1.5;margin-bottom:10px;}
+  .icon-card .label{font-size:.8rem;letter-spacing:.04em;color:var(--clay-dim);text-transform:uppercase;}
+  .production-note{margin-top:26px;text-align:center;color:var(--clay-dim);font-size:.82rem;border-top:1px dashed var(--rule);padding-top:18px;max-width:56ch;margin-inline:auto;}
+  .production-note strong{color:var(--cochineal);}
+
+  .location{display:grid;gap:22px;max-width:600px;margin-inline:auto;text-align:center;}
+  .addr{font-size:1.1rem;font-weight:600;}
+
+  footer{padding-block:40px;text-align:center;}
+  .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+  .foot-links a{color:var(--clay-dim);text-decoration:none;font-size:.85rem;}
+  .foot-links a:hover{color:var(--cochineal);}
+  .foot-note{color:var(--clay-dim);font-size:.75rem;opacity:.85;max-width:54ch;margin-inline:auto;}
+
+  .reveal{opacity:1;transform:none;transition:opacity .5s ease, transform .5s ease;}
+  @media (prefers-reduced-motion: no-preference){ .reveal.pre{opacity:0;transform:translateY(12px);} }
+  @media (max-width:640px){
+    nav.links{display:none;}
+    .menu-grid{grid-template-columns:1fr;}
+    .menu-col + .menu-col{border-left:none;border-top:1px solid var(--rule);padding-left:0;padding-top:8px;margin-top:8px;}
+  }
+</style>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">Dolores</a>
+    <nav class="links">
+      <a href="#historia">La Mixteca</a>
+      <a href="#menu">Menú</a>
+      <a href="#visitanos">Visitanos</a>
+    </nav>
+    <a class="btn solid" href="https://dolorespvd.com" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="eyebrow">Fox Point · Providence, RI</div>
+      <h1>Dolores</h1>
+      <p class="lede">Cocina contemporánea de la Mixteca — Puebla y Oaxaca — con maíz nativo nixtamalizado, de la chef Maria Meza.</p>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://dolorespvd.com" target="_blank" rel="noopener">Reservar mesa</a>
+        <a class="btn outline" href="#menu">Ver el menú</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap story reveal pre">
+      <p class="quote">"Del maíz nativo a la mesa — tradición milenaria de la Mixteca, servida en Providence."</p>
+      <p>La chef Maria Meza trae a Fox Point la cocina de la región Mixteca de Oaxaca y Puebla: tortillas hechas con maíz nativo nixtamalizado siguiendo prácticas de siglos de antigüedad. Platos como el mole pistache y el chile relleno reflejan esa raíz, con cobertura propia en Rhode Island Monthly y The Infatuation.</p>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">La carta</div>
+        <h2>Lo más destacado</h2>
+      </div>
+      <div class="stats reveal pre">
+        <div class="stat"><b>13K</b><span>seguidores en Instagram</span></div>
+        <div class="stat"><b>184</b><span>reseñas en Yelp</span></div>
+      </div>
+      <div class="menu-grid reveal pre">
+        <div class="menu-col">
+          <div class="menu-item"><span class="name">Mole pistache</span></div>
+          <div class="menu-item"><span class="name">Chile relleno</span></div>
+        </div>
+        <div class="menu-col">
+          <div class="menu-item"><span class="name">Tortillas de maíz nativo nixtamalizado</span></div>
+          <div class="menu-item"><span class="name">Menú de temporada</span></div>
+        </div>
+      </div>
+      <p class="menu-note">Carta completa y reservas en dolorespvd.com — el menú refleja disponibilidad de temporada e ingredientes importados de la Mixteca.</p>
+    </div>
+  </section>
+
+  <section id="fotografia">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">Próximamente</div>
+        <h2>Biblioteca visual</h2>
+      </div>
+      <div class="icon-grid reveal pre">
+        <div class="icon-card"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M8 6l8 12M16 6l-8 12"/></svg><div class="label">Hero</div></div>
+        <div class="icon-card"><svg viewBox="0 0 24 24"><path d="M4 14a8 6 0 0 1 16 0v2H4z"/><path d="M4 16v2h16v-2"/></svg><div class="label">Platos de carta</div></div>
+        <div class="icon-card"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/></svg><div class="label">Ambiente</div></div>
+      </div>
+      <p class="production-note"><strong>Ilustraciones provisionales</strong> — no se evaluó el banco de fotos real de Dolores en esta sesión.</p>
+    </div>
+  </section>
+
+  <section id="visitanos">
+    <div class="wrap location reveal pre">
+      <div class="section-head" style="margin-bottom:0;"><div class="eyebrow">Visitanos</div><h2>100 Hope St</h2></div>
+      <p class="addr">Fox Point, Providence, RI 02906</p>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Dolores+100+Hope+St+Providence+RI+02906" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn outline" href="https://www.instagram.com/dolorespvd/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#top">Dolores</a>
+    <div class="foot-links">
+      <a href="https://dolorespvd.com" target="_blank" rel="noopener">dolorespvd.com</a>
+      <a href="https://www.instagram.com/dolorespvd/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:info@dolorespvd.com">info@dolorespvd.com</a>
+    </div>
+    <p class="foot-note">Demo de rediseño — Fase 3/4 del proceso de agencia. No es el sitio en producción de Dolores.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.remove('pre'); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.remove('pre'); io.unobserve(entry.target); } }); }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){}
+})();
+</script>

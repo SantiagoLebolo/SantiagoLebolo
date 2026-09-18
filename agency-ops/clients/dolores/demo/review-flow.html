@@ -1,0 +1,77 @@
+<title>Dolores — Tu visita</title>
+<meta name="description" content="Landing de QR de mesa para pedir reseñas a los comensales de Dolores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --masa:#EFE3CC; --paper:#FAF3E4; --clay:#2B2420; --clay-dim:#5A4F43;
+    --cochineal:#A32138; --cochineal-deep:#7E1929; --rule:rgba(43,36,32,0.18);
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--masa);color:var(--clay);font-family:'Work Sans',ui-sans-serif,system-ui,sans-serif;min-height:100%;display:flex;justify-content:center;padding-inline:20px;padding-block:48px;}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:500;text-wrap:balance;color:var(--cochineal);}
+  .wordmark{font-family:'Fraunces',serif;color:var(--cochineal);}
+  img,svg{max-width:100%;} [hidden]{display:none!important;}
+  .card{width:100%;max-width:420px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;}
+  .eyebrow{color:var(--clay-dim);letter-spacing:.22em;text-transform:uppercase;font-size:.68rem;font-weight:600;}
+  h1{font-size:clamp(1.6rem,7vw,2.1rem);margin:2px 0 0;}
+  .lede{font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--clay-dim);font-size:1.1rem;max-width:32ch;}
+  .actions{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+  .action{display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-radius:4px;text-decoration:none;border:1px solid var(--clay);}
+  .action.primary{background:var(--cochineal);border-color:var(--cochineal-deep);}
+  .action .label{font-size:1rem;color:var(--clay);font-weight:600;}
+  .action.primary .label{color:#fff;}
+  .action .sub{font-size:.8rem;color:var(--clay-dim);}
+  .action.primary .sub{color:rgba(255,255,255,0.85);}
+  .or{color:var(--clay-dim);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;}
+  .note{font-size:.78rem;color:var(--clay-dim);border-top:1px dashed var(--rule);padding-top:16px;max-width:36ch;}
+  .qr-block{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:8px;padding-top:22px;border-top:1px solid var(--rule);width:100%;}
+  #qr{background:var(--paper);padding:10px;border:1px solid var(--clay);border-radius:6px;width:180px;height:180px;display:flex;align-items:center;justify-content:center;}
+  .qr-caption{font-size:.72rem;color:var(--clay-dim);letter-spacing:.05em;text-transform:uppercase;}
+  .fallback-link{font-size:.78rem;color:var(--cochineal);word-break:break-all;}
+  @media print{
+    body{background:#fff;color:#000;padding:0;min-height:auto;}
+    .actions,.note{display:none;} .card{gap:16px;} #qr{background:#fff;}
+    .lede,.eyebrow{color:#333;} h1{color:#000;}
+  }
+</style>
+
+<div class="card">
+  <div class="eyebrow">Fox Point · Providence, RI</div>
+  <div class="wordmark" style="font-size:1rem;">Dolores</div>
+  <h1>¿Cómo estuvo tu visita?</h1>
+  <p class="lede">Nos encantaría saber cómo fue tu experiencia — elegí la opción que prefieras.</p>
+  <div class="actions">
+    <a class="action primary" href="https://www.google.com/maps/search/?api=1&query=Dolores+100+Hope+St+Providence+RI+02906" target="_blank" rel="noopener">
+      <span class="label">★ Dejar reseña en Google</span>
+      <span class="sub">Ayuda a otros comensales a encontrarnos</span>
+    </a>
+    <span class="or">o</span>
+    <a class="action" href="mailto:info@dolorespvd.com?subject=Sobre%20mi%20visita%20a%20Dolores">
+      <span class="label">Escribirnos directo</span>
+      <span class="sub">Para contarnos algo en privado, bueno o malo</span>
+    </a>
+  </div>
+  <p class="note">Nos importa tu opinión sea cual sea la experiencia — no filtramos ni sugerimos una opción sobre la otra.</p>
+  <div class="qr-block">
+    <div id="qr"></div>
+    <div class="qr-caption">Escaneá para volver a esta página</div>
+    <div class="fallback-link" id="fallback-link" hidden></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  try{
+    var url = window.location.href;
+    var box = document.getElementById('qr');
+    if(window.QRCode){ new QRCode(box, { text: url, width: 160, height: 160, colorDark: "#2B2420", colorLight: "#FAF3E4" }); }
+    else { throw new Error('QRCode lib unavailable'); }
+  }catch(e){
+    var fb = document.getElementById('fallback-link');
+    fb.hidden = false; fb.textContent = window.location.href;
+  }
+})();
+</script>

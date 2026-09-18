@@ -1,0 +1,148 @@
+<title>Persimmon Providence</title>
+<meta name="description" content="Propuesta de rediseño digital para Persimmon, cocina de autor en Fox Point, Providence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;1,400;1,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Persimmon: identidad minimalista de alta cocina, tema único deliberado
+     (blanco cálido + tinta), no una omisión de dark mode. */
+  :root{
+    --ground:#FAF8F5; --paper:#FFFFFF; --ink:#1E1B18; --ink-dim:#6E655D;
+    --persimmon:#E8672D; --persimmon-deep:#C14E1D; --sage:#6B7460;
+    --rule: rgba(30,27,24,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--ground);color:var(--ink);font-family:'Archivo',ui-sans-serif,system-ui,sans-serif;line-height:1.7;}
+  h1,h2{font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:400;text-wrap:balance;}
+  img,svg{max-width:100%;} [hidden]{display:none!important;}
+  .wrap{max-width:760px;margin-inline:auto;padding-inline:20px;}
+
+  header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(250,248,245,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule);}
+  .nav-inner{max-width:760px;margin-inline:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Spectral',serif;font-style:italic;font-size:1.1rem;color:var(--ink);text-decoration:none;letter-spacing:.02em;}
+  .btn{display:inline-block;padding:10px 20px;text-decoration:none;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);color:var(--ink);}
+  .btn.solid{background:var(--persimmon);border-color:var(--persimmon-deep);color:#fff;}
+  .btn.solid:hover{background:var(--persimmon-deep);}
+  .btn.outline:hover{background:var(--ink);color:var(--ground);}
+
+  .hero{padding-block:88px 64px;text-align:center;}
+  .hero .eyebrow{color:var(--sage);letter-spacing:.3em;text-transform:uppercase;font-size:.68rem;margin-bottom:22px;}
+  .hero h1{font-size:clamp(2.4rem,8vw,3.8rem);color:var(--ink);}
+  .hero .lede{color:var(--ink-dim);font-size:1.05rem;max-width:38ch;margin:18px auto 0;}
+  .hairline{width:60px;height:1px;background:var(--persimmon);margin:30px auto;}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
+
+  section{padding-block:60px;border-top:1px solid var(--rule);}
+  .section-head{text-align:center;margin-bottom:32px;}
+  .section-head .eyebrow{color:var(--sage);letter-spacing:.3em;text-transform:uppercase;font-size:.68rem;margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.5rem,4vw,2rem);}
+
+  .award{max-width:56ch;margin-inline:auto;text-align:center;color:var(--ink-dim);}
+  .award b{color:var(--ink);font-weight:600;}
+
+  .chefs{max-width:56ch;margin-inline:auto;text-align:center;color:var(--ink-dim);}
+  .chefs .names{font-family:'Spectral',serif;font-style:italic;color:var(--ink);font-size:1.2rem;margin-bottom:10px;}
+
+  .visual-note{
+    max-width:56ch;margin:0 auto;text-align:center;padding:34px 20px;
+    border:1px solid var(--rule);background:var(--paper);
+  }
+  .visual-note svg{width:38px;height:38px;stroke:var(--persimmon);fill:none;stroke-width:1.3;margin-bottom:12px;}
+  .visual-note p{color:var(--ink-dim);font-size:.85rem;max-width:44ch;margin:8px auto 0;}
+  .visual-note strong{color:var(--persimmon-deep);}
+
+  .location{max-width:56ch;margin-inline:auto;text-align:center;}
+  .addr{font-size:1.05rem;}
+  .hours{color:var(--ink-dim);font-size:.9rem;margin-top:4px;}
+
+  footer{padding-block:44px;text-align:center;border-top:1px solid var(--rule);}
+  .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+  .foot-links a{color:var(--ink-dim);text-decoration:none;font-size:.82rem;}
+  .foot-links a:hover{color:var(--persimmon-deep);}
+  .foot-note{color:var(--ink-dim);font-size:.72rem;opacity:.85;max-width:52ch;margin-inline:auto;}
+
+  .reveal{opacity:1;transform:none;transition:opacity .5s ease, transform .5s ease;}
+  @media (prefers-reduced-motion: no-preference){ .reveal.pre{opacity:0;transform:translateY(10px);} }
+</style>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">Persimmon</a>
+    <a class="btn solid" href="https://resy.com/cities/providence-ri/venues/persimmon" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="eyebrow">Hope Street · Providence, RI</div>
+      <h1>Persimmon</h1>
+      <p class="lede">Cocina de autor, íntima y de temporada, de los chefs Champe y Lisa Speidel.</p>
+      <div class="hairline"></div>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://resy.com/cities/providence-ri/venues/persimmon" target="_blank" rel="noopener">Reservar en Resy</a>
+        <a class="btn outline" href="https://www.persimmonri.com" target="_blank" rel="noopener">Ir al sitio</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap award reveal pre">
+      <div class="section-head"><div class="eyebrow">Reconocimiento</div></div>
+      <p><b>Semifinalista de la James Beard Foundation</b> en Best Chef: Northeast, y semifinalista en Outstanding Service — reconocimiento nacional para un restaurante de sala íntima en Providence.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap chefs reveal pre">
+      <div class="section-head"><div class="eyebrow">La casa</div></div>
+      <p class="names">Champe &amp; Lisa Speidel</p>
+      <p>Un matrimonio de chefs al frente de una cocina técnica y de ingredientes de temporada, en un espacio pequeño pensado para pocas mesas por noche — abierto miércoles a sábado.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap reveal pre">
+      <div class="visual-note">
+        <svg viewBox="0 0 24 24"><path d="M12 3c4 2 6 6 6 10a6 6 0 0 1-12 0c0-4 2-8 6-10z"/><path d="M12 3v4"/></svg>
+        <div><strong>Fotografía pendiente</strong></div>
+        <p>No se evaluó el banco de fotos real de Persimmon en esta sesión — este espacio queda reservado para una imagen del plato de temporada una vez definida junto al negocio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="visitanos">
+    <div class="wrap location reveal pre">
+      <div class="section-head" style="margin-bottom:14px;"><div class="eyebrow">Visitanos</div><h2>99 Hope St</h2></div>
+      <p class="addr">Fox Point, Providence, RI 02906</p>
+      <p class="hours">Miércoles a sábado, desde las 5pm</p>
+      <div class="hero-ctas" style="margin-top:22px;">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Persimmon+99+Hope+St+Providence+RI+02906" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn outline" href="https://www.instagram.com/persimmonri/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#top">Persimmon</a>
+    <div class="foot-links" style="margin-top:14px;">
+      <a href="https://www.persimmonri.com" target="_blank" rel="noopener">persimmonri.com</a>
+      <a href="https://www.instagram.com/persimmonri/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/PersimmonRI/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <p class="foot-note">Demo de rediseño — Fase 3/4 del proceso de agencia. No es el sitio en producción de Persimmon. Teléfono pendiente de confirmación directa, por eso no se muestra aquí.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.remove('pre'); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.remove('pre'); io.unobserve(entry.target); } }); }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){}
+})();
+</script>

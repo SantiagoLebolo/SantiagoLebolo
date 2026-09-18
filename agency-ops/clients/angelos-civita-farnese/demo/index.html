@@ -1,0 +1,187 @@
+<title>Angelo's Civita Farnese</title>
+<meta name="description" content="Propuesta de rediseño digital para Angelo's Civita Farnese, trattoria familiar desde 1924 en Federal Hill, Providence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;0,700;1,500&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Angelo's: identidad de trattoria de Federal Hill anclada en "la Pigna"
+     y en 1924 — tema único deliberado (parchment + tinta), no una
+     omisión de dark mode. */
+  :root{
+    --parchment:#F3E9D6; --parchment-2:#EADFC7; --paper:#FBF5E8;
+    --ink:#2A1E16; --ink-dim:#5C4B3C;
+    --gravy:#A2321F; --gravy-deep:#7C2617; --basil:#45633B; --gold:#B8863C;
+    --rule: rgba(42,30,22,0.18);
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--parchment);color:var(--ink);font-family:'Barlow',ui-sans-serif,system-ui,sans-serif;line-height:1.65;}
+  h1,h2{font-family:'Bitter',Georgia,serif;font-weight:700;text-wrap:balance;}
+  .quote,.lede{font-family:'Bitter',Georgia,serif;font-style:italic;font-weight:500;}
+  img,svg{max-width:100%;} [hidden]{display:none!important;}
+  .wrap{max-width:960px;margin-inline:auto;padding-inline:20px;}
+
+  header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(243,233,214,0.94);backdrop-filter:blur(6px);border-bottom:2px solid var(--ink);}
+  .nav-inner{max-width:960px;margin-inline:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .wordmark{font-family:'Bitter',serif;font-weight:700;font-size:1.05rem;color:var(--gravy);text-decoration:none;}
+  nav.links{display:flex;gap:20px;flex-wrap:wrap;}
+  nav.links a{color:var(--ink-dim);text-decoration:none;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;}
+  nav.links a:hover{color:var(--gravy);}
+  .btn{display:inline-block;padding:10px 20px;text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;border:2px solid var(--ink);white-space:nowrap;}
+  .btn.solid{background:var(--gravy);border-color:var(--gravy-deep);color:#fff;}
+  .btn.solid:hover{background:var(--gravy-deep);}
+  .btn.outline:hover{background:var(--ink);color:var(--parchment);}
+
+  .hero{padding-block:60px 52px;text-align:center;border-bottom:2px solid var(--ink);}
+  .hero .eyebrow{color:var(--basil);letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;font-weight:600;margin-bottom:16px;}
+  .hero h1{font-size:clamp(2.1rem,7vw,3.4rem);color:var(--gravy);}
+  .hero .lede{color:var(--ink-dim);font-size:clamp(1rem,2.1vw,1.25rem);max-width:42ch;margin:16px auto 0;}
+  .badge-row{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+  .badge{text-align:center;}
+  .badge b{display:block;font-family:'Bitter',serif;font-size:1.4rem;color:var(--gold);}
+  .badge span{font-size:.72rem;color:var(--ink-dim);letter-spacing:.05em;text-transform:uppercase;}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+
+  section{padding-block:56px;border-bottom:2px solid var(--ink);}
+  section:nth-of-type(even){background:var(--parchment-2);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{text-align:center;margin-bottom:36px;}
+  .section-head .eyebrow{color:var(--basil);letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;font-weight:600;margin-bottom:8px;}
+  .section-head h2{font-size:clamp(1.6rem,4vw,2.3rem);}
+
+  .story{max-width:62ch;margin-inline:auto;text-align:center;display:flex;flex-direction:column;gap:18px;}
+  .story .quote{font-size:1.2rem;color:var(--gravy);}
+  .story p{color:var(--ink-dim);}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;max-width:700px;margin-inline:auto;}
+  .menu-col + .menu-col{border-left:2px dashed var(--rule);padding-left:44px;}
+  .menu-item{padding-block:13px;border-bottom:2px dashed var(--rule);font-weight:500;}
+  .menu-item:last-child{border-bottom:none;}
+  .menu-note{text-align:center;color:var(--ink-dim);font-size:.85rem;margin-top:26px;max-width:52ch;margin-inline:auto;}
+
+  .press{max-width:56ch;margin-inline:auto;text-align:center;color:var(--ink-dim);}
+  .press b{color:var(--ink);}
+
+  .location{display:grid;gap:22px;max-width:600px;margin-inline:auto;text-align:center;}
+  .addr{font-size:1.05rem;font-weight:600;}
+  .hours-table{margin:0 auto;border-collapse:collapse;font-size:.9rem;}
+  .hours-table td{padding:4px 14px;color:var(--ink-dim);}
+  .hours-table td:first-child{color:var(--ink);font-weight:600;text-align:right;}
+
+  footer{padding-block:40px;text-align:center;}
+  .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+  .foot-links a{color:var(--ink-dim);text-decoration:none;font-size:.85rem;}
+  .foot-links a:hover{color:var(--gravy);}
+  .foot-note{color:var(--ink-dim);font-size:.75rem;opacity:.85;max-width:54ch;margin-inline:auto;}
+
+  .reveal{opacity:1;transform:none;transition:opacity .5s ease, transform .5s ease;}
+  @media (prefers-reduced-motion: no-preference){ .reveal.pre{opacity:0;transform:translateY(12px);} }
+  @media (max-width:640px){
+    nav.links{display:none;}
+    .menu-grid{grid-template-columns:1fr;}
+    .menu-col + .menu-col{border-left:none;border-top:2px dashed var(--rule);padding-left:0;padding-top:8px;margin-top:8px;}
+  }
+</style>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">Angelo's</a>
+    <nav class="links">
+      <a href="#historia">Historia</a>
+      <a href="#menu">Menú</a>
+      <a href="#visitanos">Visitanos</a>
+    </nav>
+    <a class="btn solid" href="https://www.angelosri.com" target="_blank" rel="noopener">Ver el sitio</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="eyebrow">Federal Hill · Providence, RI</div>
+      <h1>Angelo's Civita Farnese</h1>
+      <p class="lede">Cocina italiana del sur, family-style, en la misma familia desde 1924.</p>
+      <div class="badge-row">
+        <div class="badge"><b>1924</b><span>desde entonces</span></div>
+        <div class="badge"><b>4ta</b><span>generación familiar</span></div>
+        <div class="badge"><b>4.5★</b><span>665 reseñas en Google</span></div>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.angelosri.com" target="_blank" rel="noopener">Ver el menú</a>
+        <a class="btn outline" href="https://www.instagram.com/angelosri_/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap story reveal pre">
+      <p class="quote">"A pasos de la Pigna, cocinando lo mismo desde hace cien años."</p>
+      <p>A pocas cuadras del arco de la piña que corona Atwells Avenue, Angelo's Civita Farnese sirve la misma cocina italiana del sur desde 1924 — hoy en manos de la cuarta generación de la misma familia. Pasta casera, albóndigas con salsa, braciola y berenjena a la parmesana, servidos family-style como siempre se hizo acá.</p>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head reveal pre">
+        <div class="eyebrow">La carta</div>
+        <h2>Clásicos de la casa</h2>
+      </div>
+      <div class="menu-grid reveal pre">
+        <div class="menu-col">
+          <div class="menu-item">Pasta casera</div>
+          <div class="menu-item">Albóndigas con salsa</div>
+        </div>
+        <div class="menu-col">
+          <div class="menu-item">Braciola</div>
+          <div class="menu-item">Berenjena a la parmesana</div>
+        </div>
+      </div>
+      <p class="menu-note">Carta completa en angelosri.com. Servicio family-style, como desde 1924.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap press reveal pre">
+      <div class="section-head" style="margin-bottom:20px;"><div class="eyebrow">Reconocimiento</div></div>
+      <p>Con presencia en <b>Food Network</b> y <b>Diners, Drive-Ins and Dives</b> — reconocimiento televisivo real para un restaurante de barrio con cien años de historia.</p>
+    </div>
+  </section>
+
+  <section id="visitanos">
+    <div class="wrap location reveal pre">
+      <div class="section-head" style="margin-bottom:0;"><div class="eyebrow">Visitanos</div><h2>141 Atwells Ave</h2></div>
+      <p class="addr">Federal Hill, Providence, RI 02903</p>
+      <table class="hours-table">
+        <tr><td>Lun–Mar</td><td>Cerrado</td></tr>
+        <tr><td>Mié–Jue</td><td>11:30am–8pm</td></tr>
+        <tr><td>Vie–Sáb</td><td>11:30am–9pm</td></tr>
+        <tr><td>Dom</td><td>12pm–8pm</td></tr>
+      </table>
+      <div class="hero-ctas">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Angelo%27s+Civita+Farnese+141+Atwells+Ave+Providence+RI+02903" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn outline" href="https://www.instagram.com/angelosri_/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#top">Angelo's</a>
+    <div class="foot-links">
+      <a href="https://www.angelosri.com" target="_blank" rel="noopener">angelosri.com</a>
+      <a href="https://www.instagram.com/angelosri_/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="foot-note">Demo de rediseño — Fase 3/4 del proceso de agencia. No es el sitio en producción de Angelo's Civita Farnese. Teléfono pendiente de confirmación directa, por eso no se muestra aquí.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.remove('pre'); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.remove('pre'); io.unobserve(entry.target); } }); }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  }catch(e){}
+})();
+</script>
