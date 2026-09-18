@@ -1,0 +1,120 @@
+<title>Gardel — Tu visita</title>
+<meta name="description" content="Landing de QR de mesa para pedir reseñas a los comensales de Gardel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  /* Misma identidad que el demo principal de Gardel: salón de tango en penumbra,
+     un único tema deliberado en cualquier sistema (no es una omisión de dark mode). */
+  :root{
+    --ink:#1B1512; --ink-2:#241C17; --ink-3:#2E241D;
+    --paper:#F1E6D2; --paper-dim:#C9BBA3;
+    --malbec:#A23752; --malbec-deep:#7A2036;
+    --brass:#C6A253; --rule:rgba(198,162,83,0.35);
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--ink); color:var(--paper);
+    font-family:'Work Sans',ui-sans-serif,system-ui,sans-serif;
+    min-height:100%; display:flex; justify-content:center;
+    padding-inline:20px; padding-block:48px;
+  }
+  h1{font-family:'Abril Fatface',Georgia,serif;font-weight:400;text-wrap:balance;}
+  .wordmark{font-family:'Abril Fatface',Georgia,serif;color:var(--brass);letter-spacing:.03em;}
+  img,svg{max-width:100%;}
+  [hidden]{display:none!important;}
+
+  .card{
+    width:100%;max-width:420px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:22px;
+  }
+  .eyebrow{color:var(--paper-dim);letter-spacing:.25em;text-transform:uppercase;font-size:.68rem;}
+  h1{font-size:clamp(1.7rem,7vw,2.2rem);margin:2px 0 0;}
+  .lede{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color:var(--paper-dim);font-size:1.15rem;max-width:32ch;}
+
+  .actions{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+  .action{
+    display:flex;flex-direction:column;gap:4px;
+    padding:18px 20px;border-radius:3px;text-decoration:none;
+    border:1px solid var(--rule);
+  }
+  .action.primary{background:var(--malbec);border-color:var(--malbec-deep);}
+  .action .label{font-size:1.02rem;color:var(--paper);}
+  .action.primary .label{color:#fff;}
+  .action .sub{font-size:.8rem;color:var(--paper-dim);}
+  .action.primary .sub{color:rgba(255,255,255,0.78);}
+  .action:hover{filter:brightness(1.08);}
+  .or{color:var(--paper-dim);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;}
+
+  .note{
+    font-size:.78rem;color:var(--paper-dim);border-top:1px dashed var(--rule);
+    padding-top:16px;max-width:36ch;
+  }
+
+  .qr-block{
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    margin-top:8px;padding-top:22px;border-top:1px solid var(--rule);width:100%;
+  }
+  #qr{
+    background:var(--paper);padding:10px;border-radius:4px;
+    width:180px;height:180px;display:flex;align-items:center;justify-content:center;
+  }
+  #qr img{display:block;}
+  .qr-caption{font-size:.72rem;color:var(--paper-dim);letter-spacing:.05em;text-transform:uppercase;}
+  .fallback-link{font-size:.78rem;color:var(--brass);word-break:break-all;}
+
+  @media print{
+    body{background:#fff;color:#000;padding:0;min-height:auto;}
+    .actions,.note{display:none;}
+    .card{gap:16px;}
+    #qr{background:#fff;border:1px solid #000;}
+    .lede,.eyebrow{color:#333;}
+    h1{color:#000;}
+  }
+</style>
+
+<div class="card">
+  <div class="eyebrow">Fox Point · Providence, RI</div>
+  <div class="wordmark" style="font-size:1.1rem;">Gardel</div>
+  <h1>¿Cómo estuvo tu visita?</h1>
+  <p class="lede">Nos encantaría saber cómo fue tu experiencia — elegí la opción que prefieras.</p>
+
+  <div class="actions">
+    <a class="action primary" href="https://www.google.com/maps/search/?api=1&query=Gardel+102+Ives+St+Providence+RI+02906" target="_blank" rel="noopener">
+      <span class="label">★ Dejar reseña en Google</span>
+      <span class="sub">Ayuda a otros comensales a encontrarnos</span>
+    </a>
+    <span class="or">o</span>
+    <a class="action" href="mailto:gardel.pvd@gmail.com?subject=Sobre%20mi%20visita%20a%20Gardel">
+      <span class="label">Escribirnos directo</span>
+      <span class="sub">Para contarnos algo en privado, bueno o malo</span>
+    </a>
+  </div>
+
+  <p class="note">Nos importa tu opinión sea cual sea la experiencia — no filtramos ni sugerimos una opción sobre la otra.</p>
+
+  <div class="qr-block">
+    <div id="qr"></div>
+    <div class="qr-caption">Escaneá para volver a esta página</div>
+    <div class="fallback-link" id="fallback-link" hidden></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  try{
+    var url = window.location.href;
+    var box = document.getElementById('qr');
+    if(window.QRCode){
+      new QRCode(box, { text: url, width: 160, height: 160, colorDark: "#1B1512", colorLight: "#F1E6D2" });
+    } else {
+      throw new Error('QRCode lib unavailable');
+    }
+  }catch(e){
+    var fb = document.getElementById('fallback-link');
+    fb.hidden = false;
+    fb.textContent = window.location.href;
+  }
+})();
+</script>
